@@ -1,13 +1,797 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PRIMECHANGE 人材評価・育成 統合戦略レポート</title>
-  <meta http-equiv="refresh" content="0; url=./PRIMECHANGE_%E3%82%BF%E3%83%AC%E3%83%B3%E3%83%88%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88%E7%B5%B1%E5%90%88%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88.html">
-  <link rel="canonical" href="./PRIMECHANGE_%E3%82%BF%E3%83%AC%E3%83%B3%E3%83%88%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88%E7%B5%B1%E5%90%88%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ホテル清掃会社PRIMECHANGEの人材評価・タレントマネジメント決定版。20項目の加重採点、安全ゲート、マズロー連動、AI Agent、7-9月運用サイクルを統合し自動保存対応。">
+<title>PRIMECHANGE 人材評価・タレントマネジメント（最強版）</title>
+<style>
+  :root{
+    /* PRIME CHANGE 公式ブランドカラー：コーラルレッド #c23b3a ＋ 白 ＋ グレー#333 */
+    --paper:#f4f1ef; --surface:#fff; --surface2:#f8f5f4;
+    --ink:#333333; --ink2:#5f5b5a; --muted:#8b8582;
+    --line:rgba(51,42,40,.13); --line2:rgba(51,42,40,.08);
+    --navy:#b23534; --navy2:#c23b3a; --navysoft:#f7eae9;   /* brand red family（旧navy→ブランドレッド） */
+    --brand:#c23b3a; --brand-dark:#9e2d2c; --brand-soft:#f7eae9;
+    --green:#2f7a5f; --greensoft:#eaf4ef;
+    --amber:#a66a00; --ambersoft:#fff4dc;
+    --red:#c23b3a; --redsoft:#faeceb;
+    --purple:#6f5484; --purplesoft:#efe9f5;
+    --teal:#156082; --tealsoft:#e6f0f4;
+    --gold:#b0872b;
+    --shadow:0 1px 2px rgba(40,20,18,.05),0 12px 34px rgba(40,20,18,.08);
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+    line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .wrap{width:min(1180px,calc(100% - 36px));margin:0 auto;}
+  button,input,select,textarea{font:inherit;}
+  button{cursor:pointer;}
+  code,.mono{font-family:"SF Mono",Menlo,Consolas,monospace;}
+
+  .hero{color:#fff;padding:54px 0 44px;
+    background:radial-gradient(circle at 84% 14%,rgba(255,255,255,.16),transparent 32%),
+      linear-gradient(135deg,#8f2726 0%,#b23534 54%,#cc5b58 100%);}
+  .eyebrow{margin:0 0 12px;color:#f3d3d1;font-size:12px;font-weight:750;letter-spacing:.16em;text-transform:uppercase;}
+  h1{max-width:840px;margin:0;font-size:clamp(29px,4.5vw,47px);line-height:1.16;letter-spacing:-.03em;}
+  .hero-lede{max-width:770px;margin:18px 0 0;color:#f6e5e4;font-size:16px;}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
+  .hero-chip{padding:6px 13px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.08);font-size:12px;}
+
+  .toolbar{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(255,255,255,.94);backdrop-filter:blur(12px);}
+  .toolbar-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:56px;}
+  .toolbar-nav{display:flex;gap:4px;overflow-x:auto;}
+  .toolbar a{padding:7px 11px;border-radius:8px;color:var(--ink2);font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;}
+  .toolbar a:hover{background:var(--navysoft);color:var(--navy);}
+  .actions{display:flex;gap:8px;flex:none;}
+  .btn{min-height:38px;padding:7px 14px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font-size:12px;font-weight:750;}
+  .btn.primary{border-color:var(--navy);background:var(--navy);color:#fff;}
+  .btn:hover{transform:translateY(-1px);}
+
+  main{padding:38px 0 90px;}
+  section{scroll-margin-top:70px;margin-bottom:50px;}
+  .kicker{display:block;margin-bottom:5px;color:var(--navy2);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;}
+  h2{margin:0;font-size:25px;line-height:1.3;letter-spacing:-.02em;}
+  .lead{margin:9px 0 20px;color:var(--ink2);font-size:14.5px;max-width:840px;}
+  h3{font-size:16px;color:var(--navy);margin:24px 0 11px;}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 26px;box-shadow:var(--shadow);}
+
+  .pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+  .stage{position:relative;border:1px solid var(--line);border-radius:14px;padding:15px 13px;background:var(--surface2);}
+  .stage .st-no{position:absolute;top:9px;right:11px;font-size:24px;font-weight:850;color:var(--navysoft);line-height:1;}
+  .stage h4{margin:0 0 6px;font-size:13px;color:var(--navy);position:relative;z-index:1;}
+  .stage ul{margin:6px 0 0;padding-left:15px;font-size:11px;color:var(--ink2);line-height:1.5;}
+  .stage.s1{border-top:4px solid var(--navy2);} .stage.s2{border-top:4px solid var(--teal);}
+  .stage.s3{border-top:4px solid var(--purple);} .stage.s4{border-top:4px solid var(--amber);} .stage.s5{border-top:4px solid var(--green);}
+  .pipe-arrows{display:grid;grid-template-columns:repeat(5,1fr);margin:6px 0 0;color:var(--muted);font-size:18px;text-align:center;}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;}
+  .halfbox{border:1px solid var(--line);border-radius:12px;padding:15px 17px;background:#fff;}
+  .halfbox .pct{font-size:28px;font-weight:850;}
+  .halfbox.ai{border-top:4px solid var(--teal);} .halfbox.ai .pct{color:var(--teal);}
+  .halfbox.mgr{border-top:4px solid var(--navy);} .halfbox.mgr .pct{color:var(--navy);}
+  .halfbox p{margin:6px 0 0;font-size:12px;color:var(--ink2);}
+  .flow-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .ftag{font-size:11px;padding:5px 11px;border-radius:999px;background:var(--navysoft);color:var(--navy);font-weight:600;}
+  .ftag.gold{background:var(--ambersoft);color:var(--amber);} .ftag.pur{background:var(--purplesoft);color:var(--purple);}
+
+  table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  th{background:var(--navy);color:#fff;padding:10px 11px;text-align:left;font-weight:600;font-size:12px;}
+  td{padding:10px 11px;border-bottom:1px solid var(--line2);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;}
+  .rank-badge{display:inline-block;width:27px;height:27px;line-height:27px;text-align:center;border-radius:7px;color:#fff;font-weight:800;}
+  .bS{background:var(--gold);} .bA{background:var(--green);} .bB{background:var(--navy);} .bC{background:var(--amber);} .bD{background:var(--red);}
+
+  .maslow{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+  .mrow{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;}
+  .mlabel{font-weight:700;font-size:12px;padding:9px 12px;border-radius:9px;color:#fff;text-align:center;}
+  .m5{background:#6b4fbb;} .m4{background:#2b7a9c;} .m3{background:#16744a;} .m2{background:#a66a00;} .m1{background:#8a5a2b;}
+  .mdesc{font-size:12px;color:var(--ink2);} .mdesc b{color:var(--ink);}
+
+  .theory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px;}
+  .tchip{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fbfcfe;border-top:3px solid var(--gold);}
+  .tchip b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px;}
+  .tchip span{font-size:11px;color:var(--ink2);}
+  .note{margin-top:14px;padding:14px 16px;border:1px solid #ecd7a9;border-radius:11px;background:var(--ambersoft);color:#76501a;font-size:12.5px;}
+
+  .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px;}
+  .scale-item{padding:13px;border-radius:11px;background:var(--surface2);border-top:3px solid var(--sc);}
+  .scale-item strong{font-size:13px;} .scale-item p{margin:5px 0 0;color:var(--ink2);font-size:11px;line-height:1.5;}
+
+  /* assessment */
+  .profile-card{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow);}
+  label.field{display:block;}
+  .field span{display:block;margin-bottom:6px;color:var(--ink2);font-size:11px;font-weight:750;}
+  .field input,.field select,.field textarea{width:100%;min-height:42px;padding:9px 11px;border:1px solid var(--line);border-radius:9px;outline:none;background:#fff;color:var(--ink);}
+  .field textarea{min-height:96px;resize:vertical;}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--navy2);box-shadow:0 0 0 3px rgba(61,103,152,.12);}
+
+  .assessment-layout{display:grid;grid-template-columns:minmax(0,1fr) 272px;gap:20px;align-items:start;margin-top:18px;}
+  .adomain{margin-bottom:18px;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow);}
+  .adomain-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border-bottom:1px solid var(--line);background:var(--surface2);}
+  .adomain-title{display:flex;align-items:center;gap:10px;}
+  .dcode{display:grid;width:30px;height:30px;place-items:center;border-radius:8px;background:var(--dc);color:#fff;font-size:12px;font-weight:850;}
+  .adomain-head h4{margin:0;font-size:14px;}
+  .dmeta{color:var(--ink2);font-size:11px;font-weight:700;text-align:right;}
+  .dmeta .maslow-tag{display:inline-block;margin-top:2px;padding:1px 8px;border-radius:20px;background:var(--dc);color:#fff;font-size:10px;}
+  .criterion{padding:16px 18px;border-bottom:1px solid var(--line2);}
+  .criterion:last-child{border-bottom:0;}
+  .criterion-top{display:flex;gap:12px;}
+  .cnum{flex:none;display:grid;width:26px;height:26px;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--ink2);font-size:11px;font-weight:800;}
+  .criterion h5{margin:1px 0 4px;font-size:13.5px;}
+  .criterion p{margin:0;color:var(--ink2);font-size:11.5px;line-height:1.55;}
+  .role-tip{display:inline-block;margin-top:6px;color:var(--navy2);font-size:11px;font-weight:700;}
+  .rating-row{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:11px;padding-left:38px;}
+  .rating-choice{position:relative;}
+  .rating-choice input{position:absolute;opacity:0;pointer-events:none;}
+  .rating-choice label{display:grid;min-height:38px;place-items:center;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink2);font-size:12px;font-weight:800;cursor:pointer;}
+  .rating-choice input:focus-visible + label{outline:3px solid rgba(61,103,152,.3);}
+  .rating-choice input:checked + label{border-color:var(--dc);background:color-mix(in srgb,var(--dc) 12%,white);color:var(--dc);}
+  .comment-row{margin:8px 0 0 38px;}
+  .comment-row input{width:100%;padding:8px 10px;border:0;border-bottom:1px solid var(--line);outline:0;color:var(--ink);font-size:12px;min-height:auto;}
+  .comment-row input:focus{border-color:var(--navy2);background:var(--navysoft);}
+
+  .score-card{position:sticky;top:74px;padding:20px;border-radius:16px;background:#332a29;color:#fff;box-shadow:var(--shadow);}
+  .score-card .label{color:#e3c9c7;font-size:11px;font-weight:750;letter-spacing:.08em;}
+  .score-main{display:flex;align-items:end;gap:6px;margin:4px 0 2px;}
+  .score-value{font-size:46px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#ffd9d7;}
+  .score-unit{padding-bottom:5px;color:#e3c9c7;font-size:13px;}
+  .rankpill{display:inline-flex;align-items:center;min-width:38px;min-height:30px;justify-content:center;margin-top:9px;padding:0 12px;border-radius:8px;background:rgba(255,255,255,.13);font-weight:850;}
+  .progress{height:7px;margin:15px 0 8px;overflow:hidden;border-radius:99px;background:rgba(255,255,255,.12);}
+  .progress>span{display:block;width:0;height:100%;border-radius:inherit;background:#75c69b;transition:width .2s;}
+  .completion{color:#e0cbc9;font-size:11px;}
+  .score-breakdown{margin-top:15px;padding-top:13px;border-top:1px solid rgba(255,255,255,.14);}
+  .breakdown-row{display:flex;justify-content:space-between;gap:8px;margin:6px 0;color:#e6d4d2;font-size:11px;}
+  .breakdown-row b{color:#fff;}
+  .gate{display:none;margin-top:13px;padding:10px;border-radius:8px;background:rgba(242,172,65,.18);color:#ffe1aa;font-size:11px;line-height:1.5;}
+  .gate.visible{display:block;}
+  .saved-note{margin-top:12px;color:#9fd3b6;font-size:10.5px;}
+
+  .guard-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+  .guard{padding:15px 17px;border-radius:11px;background:var(--redsoft);color:#783232;font-size:12px;} .guard b{display:block;margin-bottom:4px;}
+
+  pre{background:#0f1b2a;color:#e6eef7;border-radius:12px;padding:17px 19px;overflow-x:auto;font-size:12px;line-height:1.6;margin:12px 0;}
+  pre .c{color:#7fa8d0;} pre .k{color:#e0b978;} pre .s{color:#8fd3a6;}
+  .schema{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px;}
+  .tl{border:1px solid var(--line);border-radius:14px;padding:17px;background:#fff;box-shadow:var(--shadow);}
+  .tl .mth{font-size:13px;font-weight:800;color:#fff;display:inline-block;padding:4px 12px;border-radius:8px;margin-bottom:9px;}
+  .tl.jul .mth{background:var(--navy);} .tl.aug .mth{background:var(--teal);} .tl.sep .mth{background:var(--green);}
+  .tl ul{margin:0;padding-left:16px;font-size:12px;color:var(--ink2);} .tl li{margin:5px 0;} .tl li b{color:var(--ink);}
+  .cadence{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:15px;}
+  .cad{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--surface2);}
+  .cad h5{margin:0 0 6px;font-size:13px;color:var(--navy);} .cad p{margin:0;font-size:11.5px;color:var(--ink2);}
+
+  .development{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .dev-card{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--surface);}
+  .dev-card h3{margin:0 0 11px;color:var(--navy);font-size:14px;}
+  .dev-card.full{grid-column:1 / -1;}
+  .goal-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;}
+  .method{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;}
+  .method div{padding:11px;border-radius:10px;background:var(--surface2);color:var(--ink2);font-size:11px;} .method b{color:var(--navy);}
+
+  .callout{background:linear-gradient(135deg,#fdf9ee,#f6faff);border:1px dashed var(--gold);border-radius:12px;padding:14px 17px;font-size:12.5px;margin-top:15px;} .callout b{color:var(--navy);}
+  .selfscore{text-align:center;background:linear-gradient(135deg,#17304f,#294f78);color:#fff;border-radius:14px;padding:20px;margin-top:14px;}
+  .selfscore .big{font-size:40px;font-weight:850;color:#ffe1aa;}
+  footer{padding:24px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;text-align:center;}
+
+  @media(max-width:960px){
+    .pipe,.pipe-arrows{grid-template-columns:1fr 1fr;} .theory-grid{grid-template-columns:1fr 1fr;}
+    .assessment-layout{grid-template-columns:1fr;} .score-card{position:static;}
+    .timeline,.cadence,.development,.goal-grid,.method,.schema,.scale{grid-template-columns:1fr;}
+    .profile-card{grid-template-columns:1fr 1fr;} .split,.guard-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:620px){
+    .toolbar-nav{display:none;} .rating-row{padding-left:0;} .comment-row{margin-left:0;}
+    .dev-card.full{grid-column:auto;} .actions .lbl{display:none;} .profile-card{grid-template-columns:1fr;}
+  }
+  @media print{
+    @page{size:A4 portrait;margin:11mm;}
+    body{background:#fff;color:#111;font-size:9pt;}
+    .toolbar,.actions{display:none !important;}
+    .hero{padding:8mm 0 6mm;background:none;color:#111;border-bottom:2px solid var(--navy);}
+    .eyebrow,.hero-lede{color:var(--navy);} .hero-chip{border-color:#bbb;background:none;}
+    main{padding:6mm 0 0;} section{margin-bottom:7mm;break-inside:avoid;}
+    .card,.adomain,.dev-card,.tl,.score-card{box-shadow:none;}
+    .assessment-layout{display:block;} .score-card{position:static;margin-bottom:6mm;background:#eef2f6;color:#111;border:1px solid #999;}
+    .score-card .label,.completion,.breakdown-row,.breakdown-row b,.score-unit{color:#333;}
+    .criterion{padding:3mm 4mm;} .rating-choice label{min-height:7mm;}
+    pre{background:#f4f6f8;color:#111;border:1px solid #ccc;}
+  }
+</style>
 </head>
 <body>
-  <p><a href="./PRIMECHANGE_%E3%82%BF%E3%83%AC%E3%83%B3%E3%83%88%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88%E7%B5%B1%E5%90%88%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88.html">PRIMECHANGE 人材評価・育成 統合戦略レポートを開く</a></p>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">PRIMECHANGE · Talent Management System — Ultimate</p>
+    <h1>人材評価・タレントマネジメント<br>最強版</h1>
+    <p class="hero-lede">現場データをAIが集計し、著名な人材育成理論とマズローの欲求段階を根拠に、一人ひとりへ最適なAction Itemを提示する——構想の全体像と、実際に採点できる評価票を1つに統合しました。入力は自動保存されます。</p>
+    <div class="hero-chips">
+      <span class="hero-chip">全体構成図</span>
+      <span class="hero-chip">20項目・加重採点</span>
+      <span class="hero-chip">安全ゲート</span>
+      <span class="hero-chip">マズロー連動</span>
+      <span class="hero-chip">AI Agent</span>
+      <span class="hero-chip">3層役割モデル</span>
+      <span class="hero-chip">データ接続モデル</span>
+      <span class="hero-chip">公正性・説明責任</span>
+      <span class="hero-chip">30日/90日ロールアウト</span>
+      <span class="hero-chip">自動保存・印刷対応</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toolbar">
+  <div class="wrap toolbar-inner">
+    <div class="toolbar-nav">
+      <a href="#blueprint">全体構成</a>
+      <a href="#theories">理論</a>
+      <a href="#maslow">マズロー</a>
+      <a href="#criteria">評価基準</a>
+      <a href="#assessment">評価票</a>
+      <a href="#rules">結果ルール</a>
+      <a href="#ai">AI Agent</a>
+      <a href="#roles">役割3層</a>
+      <a href="#datamodel">データ接続</a>
+      <a href="#governance">公正性</a>
+      <a href="#development">育成計画</a>
+      <a href="#operation">運用サイクル</a>
+      <a href="#rollout">導入計画</a>
+    </div>
+    <div class="actions">
+      <button class="btn" id="resetButton" type="button"><span class="lbl">入力を</span>クリア</button>
+      <button class="btn primary" type="button" onclick="window.print()">印刷・PDF</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- 01 全体構成図 -->
+<section id="blueprint">
+  <span class="kicker">01 · System Blueprint</span>
+  <h2>システム全体構成図</h2>
+  <p class="lead">複数のインプットをAIエージェントが集計し、個人の特徴を抽出、理論とマズローを根拠にAction Itemを生成、人×AIのハイブリッドでレポートを運用する——5ステージのデータパイプラインです。</p>
+  <div class="card">
+    <div class="pipe">
+      <div class="stage s1"><div class="st-no">1</div><h4>インプット</h4><ul><li>評価シート(20項目)</li><li>Slack個人日報</li><li>個人月報</li><li>ホテル毎の集計</li><li>品質管理日報</li></ul></div>
+      <div class="stage s2"><div class="st-no">2</div><h4>AI Agent集計</h4><ul><li>AI Agent+Script Mgr</li><li>Daily自動集計</li><li>部・ホテル毎に束ねる</li><li>Slackへ返信</li></ul></div>
+      <div class="stage s3"><div class="st-no">3</div><h4>特徴抽出</h4><ul><li>人毎の特徴を抽出</li><li>強み／課題の可視化</li><li>時系列の変化</li></ul></div>
+      <div class="stage s4"><div class="st-no">4</div><h4>助言生成</h4><ul><li>人材育成理論</li><li>＋マズロー欲求段階</li><li>→個別Action Item</li></ul></div>
+      <div class="stage s5"><div class="st-no">5</div><h4>レポート／運用</h4><ul><li>毎人レポート(内容AI)</li><li>AI50%／Mgr50%</li><li>Master Mind 3人が統括</li></ul></div>
+    </div>
+    <div class="pipe-arrows"><span>▼</span><span>▶</span><span>▶</span><span>▶</span><span>▶</span></div>
+    <div class="split">
+      <div class="halfbox ai"><div class="pct">50%</div><b>AI が担う</b><p>集計・特徴抽出・Action Item草案・毎人レポート下書き・Slack返信の自動化。速く・網羅的に・公平に「素材」を作る。</p></div>
+      <div class="halfbox mgr"><div class="pct">50%</div><b>マネージャーが担う</b><p>現場文脈の補正・面談での対話・最終評価の確定・処遇判断・AI助言の取捨選択。人にしかできない判断を担う。</p></div>
+    </div>
+    <div class="flow-tags">
+      <span class="ftag">インプット：評価シート／日報／月報／ホテル集計／品質管理</span>
+      <span class="ftag pur">中核：AI Agent + Script Mgr（Daily集計）</span>
+      <span class="ftag gold">根拠：人材育成理論 ＋ マズロー</span>
+      <span class="ftag">統括：Master Mind Member 3人</span>
+    </div>
+  </div>
+</section>
+
+<!-- 02 理論 -->
+<section id="theories">
+  <span class="kicker">02 · Foundation</span>
+  <h2>土台となる7つの人材育成理論</h2>
+  <p class="lead">個人採点は成果につながる行動特性で行い（①〜⑤）、技能習熟の段階（⑥）と成果検証（⑦）で補強、マズローで助言の優先順位を決めます。</p>
+  <div class="theory-grid">
+    <div class="tchip"><b>① コンピテンシー理論</b><span>年数でなく成果を生む行動特性で評価</span></div>
+    <div class="tchip"><b>② コルブ経験学習</b><span>経験→振り返り→教訓化→再実践</span></div>
+    <div class="tchip"><b>③ 70:20:10の法則</b><span>実務7・他者2・研修1で学ぶ</span></div>
+    <div class="tchip"><b>④ 自己決定理論</b><span>自律性・有能感・関係性を育てる</span></div>
+    <div class="tchip"><b>⑤ 状況対応型リーダーシップ</b><span>習熟度に応じ指示〜委譲を使い分け</span></div>
+    <div class="tchip"><b>⑥ ドレイファス技能習得</b><span>初心者→熟達者の技能段階</span></div>
+    <div class="tchip"><b>⑦ カークパトリック4段階</b><span>研修→行動変容→成果の検証</span></div>
+    <div class="tchip" style="border-top-color:#6b4fbb"><b>＋ マズロー欲求段階</b><span>助言の優先順位を決める軸</span></div>
+  </div>
+  <div class="note"><strong>理論の使い分け：</strong>カークパトリックとハーズバーグ（二要因）は<b>個人の性格や意欲を直接採点する物差しには使いません</b>。前者は研修制度全体の効果測定、後者は職場環境・定着施策の改善に使います。</div>
+</section>
+
+<!-- 03 マズロー -->
+<section id="maslow">
+  <span class="kicker">03 · Maslow Mapping</span>
+  <h2>マズロー欲求段階 × 評価カテゴリ</h2>
+  <p class="lead">5つの評価カテゴリを、マズローの5段階に1対1で対応づけています。評価が低い項目が<b>どの欲求段階でつまずいているか</b>で、Action Itemの方向が決まります。</p>
+  <div class="card">
+    <div class="maslow">
+      <div class="mrow"><div class="mlabel m5">自己実現</div><div class="mdesc"><b>E 学習・育成・成長</b>：振り返り、知識共有、後輩育成。成長し、人に教え、価値を生む段階。</div></div>
+      <div class="mrow"><div class="mlabel m4">承認欲求</div><div class="mdesc"><b>D 主体性・改善</b>：自律的行動、改善提案、有能感。認められ自信を持つ段階。</div></div>
+      <div class="mrow"><div class="mlabel m3">社会的欲求</div><div class="mdesc"><b>C ホスピタリティ・協働</b>：チームワーク、ゲスト配慮、連携。仲間・チームに所属する段階。</div></div>
+      <div class="mrow"><div class="mlabel m2">安全欲求</div><div class="mdesc"><b>B 信頼・業務遂行</b>：勤怠・規律、報連相、確実な実行。安心して働ける段階。</div></div>
+      <div class="mrow"><div class="mlabel m1">生理的欲求</div><div class="mdesc"><b>A 清掃技術・品質</b>：基本の作業遂行・安全衛生。仕事として成立する土台。</div></div>
+    </div>
+    <div class="callout"><b>助言の原則：</b>低い段階が満たされていない人に上位段階（成長・自己実現）を求めても機能しません。<b>まず土台から支援する</b>——これがAI Agentの優先順位ロジックになります。</div>
+  </div>
+</section>
+
+<!-- 04 評価基準 -->
+<section id="criteria">
+  <span class="kicker">04 · Rating Standard</span>
+  <h2>評価者が変わってもぶれにくい5段階基準</h2>
+  <p class="lead">「3＝期待どおり」を基準に、頻度・自立度・影響範囲で上下を判断。評価機会がない項目は「―」を選び、推測で採点しません。</p>
+  <div class="scale">
+    <div class="scale-item" style="--sc:#b53939"><strong>1 · 基準未達</strong><p>基準を満たさず、継続的な指導と確認が必要。</p></div>
+    <div class="scale-item" style="--sc:#c47a22"><strong>2 · 要支援</strong><p>一部できるが、指示・確認・手直しが必要。</p></div>
+    <div class="scale-item" style="--sc:#71808f"><strong>3 · 期待どおり</strong><p>通常業務を自立して安定的に遂行できる。</p></div>
+    <div class="scale-item" style="--sc:#3d6798"><strong>4 · 期待以上</strong><p>高い水準で実行し、周囲にも良い影響がある。</p></div>
+    <div class="scale-item" style="--sc:#16744a"><strong>5 · 模範</strong><p>常に高水準。改善や他者支援にも展開できる。</p></div>
+  </div>
+</section>
+
+<!-- 05 評価票 -->
+<section id="assessment">
+  <span class="kicker">05 · Assessment</span>
+  <h2>20項目 人材評価シート（自動採点）</h2>
+  <p class="lead">評価対象期間を通じた複数の事実で判断してください。入力は自動保存されます。役割を選ぶと各項目の評価観点が切り替わります。</p>
+
+  <div class="profile-card">
+    <label class="field"><span>被評価者</span><input type="text" id="employeeName" placeholder="氏名"></label>
+    <label class="field"><span>役割</span><select id="role"><option>清掃スタッフ</option><option>チェッカー</option><option>サブリーダー</option><option>リーダー／責任者</option></select></label>
+    <label class="field"><span>所属ホテル・現場</span><input type="text" id="location" placeholder="ホテル名"></label>
+    <label class="field"><span>評価期間</span><input type="text" id="period" placeholder="例：2026年7月〜9月"></label>
+    <label class="field"><span>評価者</span><input type="text" id="evaluator" placeholder="氏名"></label>
+    <label class="field"><span>評価日</span><input type="date" id="date"></label>
+    <label class="field"><span>担当経験</span><input type="text" id="experience" placeholder="例：入社1年2か月"></label>
+    <label class="field"><span>面談日</span><input type="date" id="meetingDate"></label>
+  </div>
+
+  <div class="assessment-layout">
+    <div id="domains"></div>
+    <aside class="score-card" aria-live="polite">
+      <div class="label">総合スコア</div>
+      <div class="score-main"><span class="score-value" id="scoreValue">—</span><span class="score-unit">/ 100</span></div>
+      <div class="rankpill" id="rankValue">未判定</div>
+      <div class="progress"><span id="progressBar"></span></div>
+      <div class="completion" id="completion">0 / 20項目を入力済み</div>
+      <div class="score-breakdown" id="breakdown"></div>
+      <div class="gate" id="gateMessage"></div>
+      <div class="saved-note" id="savedNote">入力は自動保存されます</div>
+    </aside>
+  </div>
+</section>
+
+<!-- 06 結果ルール -->
+<section id="rules">
+  <span class="kicker">06 · Result Rules</span>
+  <h2>総合ランクと Action Item への接続</h2>
+  <p class="lead">カテゴリごとの重みで100点換算。点数だけで処遇を自動決定せず、評価会議と面談で確定します。ランクごとにAIが提案するAction Itemの方向性を示します。</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>スコア</th><th>ランク</th><th>Action Itemの方向性（AIが提案）</th></tr></thead>
+      <tbody>
+        <tr><td>90–100</td><td><span class="rank-badge bS">S</span> 模範</td><td>後輩育成・トレーナー役の付与、より高い自己実現テーマの設定</td></tr>
+        <tr><td>80–89</td><td><span class="rank-badge bA">A</span> 期待以上</td><td>担当範囲の拡大、リーダー候補としての承認機会の提供</td></tr>
+        <tr><td>65–79</td><td><span class="rank-badge bB">B</span> 期待どおり</td><td>1つ上の欲求段階に向けた具体スキルの習得目標を設定</td></tr>
+        <tr><td>50–64</td><td><span class="rank-badge bC">C</span> 重点育成</td><td>つまずいている欲求段階を特定し、重点OJTで土台を固める</td></tr>
+        <tr><td>0–49</td><td><span class="rank-badge bD">D</span> 要改善</td><td>生理的・安全段階(A・B)から再指導。安心して働ける環境を優先</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="guard-grid">
+    <div class="guard"><b>品質・安全ゲート</b>No.1「仕上がり品質」またはNo.5「用具・薬剤・安全衛生」が2点以下の場合、総合ランクの上限をCとします。</div>
+    <div class="guard"><b>評価成立条件</b>20項目中15項目以上で暫定判定、18項目以上で正式判定。「―」は分母から除外します。</div>
+  </div>
+</section>
+
+<!-- 07 AI Agent -->
+<section id="ai">
+  <span class="kicker">07 · AI Agent Prompt</span>
+  <h2>AI Agentプロンプト設計（特徴 → Action Item）</h2>
+  <p class="lead">集計データから「人毎の特徴」を抽出し、理論とマズローを根拠に「Action Item」を生成するAIの中身です。</p>
+  <div class="schema">
+    <div class="card"><b>入力（Daily集計から供給）</b>
+<pre>{
+  <span class="k">"staff_id"</span>: <span class="s">"P-0123"</span>,
+  <span class="k">"period"</span>: <span class="s">"2026-07"</span>,
+  <span class="k">"scores"</span>: { <span class="k">"item_1"</span>:4, <span class="k">"item_5"</span>:2, ... },
+  <span class="k">"daily_logs"</span>: [<span class="s">"Slack日報"</span>, ...],
+  <span class="k">"monthly_report"</span>: <span class="s">"個人月報"</span>,
+  <span class="k">"quality_flags"</span>: [<span class="s">"清掃漏れ2件"</span>],
+  <span class="k">"hotel_kpi"</span>: { <span class="k">"complaint"</span>:1, <span class="k">"pass_rate"</span>:0.92 }
+}</pre></div>
+    <div class="card"><b>出力（毎人レポートの素材）</b>
+<pre>{
+  <span class="k">"traits"</span>: [
+    { <span class="k">"label"</span>:<span class="s">"技術は高いが安全が手薄"</span>,
+      <span class="k">"maslow"</span>:<span class="s">"安全欲求"</span>,
+      <span class="k">"evidence"</span>:<span class="s">"item_1=4/item_5=2/清掃漏れ2件"</span> }
+  ],
+  <span class="k">"action_items"</span>: [
+    { <span class="k">"action"</span>:<span class="s">"退室前チェックを声出し確認(2週間)"</span>,
+      <span class="k">"theory"</span>:<span class="s">"コルブ経験学習"</span>,
+      <span class="k">"priority"</span>:<span class="s">"高"</span> }
+  ],
+  <span class="k">"manager_note"</span>: <span class="s">"面談で確認すべき点"</span>
+}</pre></div>
+  </div>
+  <div class="card">
+    <b>システムプロンプト（雛形）</b>
+<pre><span class="c"># 役割</span>
+あなたはPRIMECHANGEの人材育成アドバイザーAI。1人分の集計データから
+特徴を抽出し、人材育成理論とマズローを根拠に実行可能なAction Itemを生成する。
+
+<span class="c"># 判断の原則</span>
+1. 20項目スコア・日報・品質フラグから、事実に基づく特徴を3〜5個抽出（evidence必須）。
+2. 各特徴が<span class="k">マズローのどの段階</span>かを判定。低い段階が未充足なら最優先。
+3. Action Itemは必ず7理論のいずれかを根拠にする。
+4. 「誰が・何を・いつまでに」まで具体化し、多くても3個に絞る。
+5. 断定を避け、マネージャーが最終判断できるよう manager_note を添える。
+
+<span class="c"># 禁止事項</span>
+- 人格否定・押し付けをしない。行動と事実にのみ言及する。
+- データにない憶測で決めつけない。
+
+<span class="c"># 出力</span>
+指定JSON（traits / action_items / manager_note）で返す。</pre>
+    <div class="callout"><b>ポイント：</b>「低い欲求段階を最優先」というルールが、マズローを単なる分類でなく<b>助言の優先順位ロジック</b>として機能させます。ホワイトボードの「マズロー → Action Item」を実装した部分です。</div>
+  </div>
+</section>
+
+<!-- 07b 3層役割モデル -->
+<section id="roles">
+  <span class="kicker">07b · Three-Layer Roles</span>
+  <h2>AIと人間の役割を「3層」に分ける</h2>
+  <p class="lead">「AI 50% / Mgr 50%」をさらに精緻化し、責任と権限を3層で明確にします。<b>AIは決めない・人が決める・基準は合議で守る</b>——これが誤用と属人化を防ぐ骨格です。</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>層</th><th>担い手</th><th>役割</th><th>判断範囲</th><th>頻度</th></tr></thead>
+      <tbody>
+        <tr><td><b>第1層<br>自動化</b></td><td>AI Agent + Script Mgr</td><td>集計・特徴抽出・Action Item草案・毎人レポート下書き・進捗リマインド</td><td><b>提案まで</b>（決定しない）</td><td>Daily（24時間・全件）</td></tr>
+        <tr><td><b>第2層<br>判断</b></td><td>現場マネージャー</td><td>面談・現場文脈の補正・最終評価の確定・AI助言の取捨選択</td><td><b>個人単位の意思決定</b></td><td>Weekly / Monthly</td></tr>
+        <tr><td><b>第3層<br>統治</b></td><td>Master Mind Member（3人）</td><td>評価基準の維持・AI助言品質の監督・重大処遇の合議・制度改善</td><td><b>制度・方針の意思決定</b></td><td>Monthly / 四半期</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout"><b>なぜ3層か：</b>AIに判断を委ねると公平に見えて誤り、マネージャー任せにすると属人化する。<b>草案（AI）→ 個別判断（人）→ 基準の番人（合議）</b>と層を分けることで、速さ・現場性・一貫性を同時に担保します。</div>
+</section>
+
+<!-- 07c データ接続モデル -->
+<section id="datamodel">
+  <span class="kicker">07c · Data Model</span>
+  <h2>データを「人物 × 現場 × 期間 × 評価項目」で接続する</h2>
+  <p class="lead">日報・月報・品質データ・評価シートを、共通の4軸でひも付けます。これにより「その人の成長」「現場ごとの傾向」「項目別の弱点」を同じデータから多面的に見られます。</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>軸</th><th>キー</th><th>例</th><th>この軸で見えること</th></tr></thead>
+      <tbody>
+        <tr><td><b>人物</b></td><td>staff_id</td><td>P-0123</td><td>個人の時系列変化・強み/課題・Action Itemの達成度</td></tr>
+        <tr><td><b>現場</b></td><td>hotel_id</td><td>H-東京A</td><td>現場ごとの品質傾向・難度・チーム配置の影響</td></tr>
+        <tr><td><b>期間</b></td><td>period</td><td>2026-07 / Q3</td><td>評価A→Bの変化・季節/繁忙の影響・成長速度</td></tr>
+        <tr><td><b>評価項目</b></td><td>item_1〜20</td><td>item_5（安全衛生）</td><td>項目別の全社傾向・研修が必要な共通弱点</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout"><b>掛け合わせの例：</b>「人物 × 期間」で個人の成長曲線、「現場 × 評価項目」で弱い現場の重点課題、「評価項目 × 期間」で研修効果の検証。<b>1つのデータを4軸で切る</b>ことが、AI Agentの特徴抽出とMaster Mindの全体レビューの土台になります。</div>
+</section>
+
+<!-- 07d 公正性・個人情報・説明責任 -->
+<section id="governance">
+  <span class="kicker">07d · Fairness & Accountability</span>
+  <h2>公正性・個人情報・説明責任</h2>
+  <p class="lead">評価は人の処遇に関わります。AIを使うほど「公正・プライバシー・説明できること」の設計が重要になります。守るべき線を明文化します。</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>観点</th><th>守るルール</th><th>具体策</th></tr></thead>
+      <tbody>
+        <tr><td><b>公正性<br>バイアス防止</b></td><td>属性・好き嫌い・直近印象で評価しない</td><td>複数事実主義、評価会議でキャリブレーション、甘辛差の点検、国籍・年齢・雇用形態の偏り確認</td></tr>
+        <tr><td><b>個人情報<br>プライバシー</b></td><td>日報・評価データは目的内でのみ利用</td><td>閲覧権限の限定、保存期間の設定、目的外利用の禁止、匿名化してのAI学習</td></tr>
+        <tr><td><b>説明責任<br>透明性</b></td><td>評価とAI助言は根拠を示せること</td><td>AI出力に必ずevidence添付、最終判断は人、本人への開示・フィードバック、異議申立の経路を用意</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout"><b>原則：</b>AIは「速く・網羅的に・公平に素材を作る」役ですが、<b>評価の主語は常に人（マネージャー）</b>です。AIの助言をそのまま処遇に使わず、必ず人が事実と現場文脈で確認します。</div>
+</section>
+
+<!-- 08 育成計画 -->
+<section id="development">
+  <span class="kicker">08 · Development Plan</span>
+  <h2>評価を次の成長行動につなげる</h2>
+  <p class="lead">改善点を並べすぎず、強み1つ・優先課題1〜2つに絞ります。本人と評価者が、行動・支援・期限を合意します。（入力は自動保存）</p>
+  <div class="development">
+    <label class="field dev-card"><h3>本人の強み・継続する行動</h3><textarea id="strengths" placeholder="具体的な行動事実と、今後も活かす場面"></textarea></label>
+    <label class="field dev-card"><h3>優先して改善する課題</h3><textarea id="improvements" placeholder="改善が必要な行動と、その影響"></textarea></label>
+    <div class="dev-card full">
+      <h3>次回までのSMART目標</h3>
+      <div class="goal-grid">
+        <label class="field"><span>具体的な目標・達成基準</span><textarea id="goal" placeholder="例：客室検査の初回合格率を3か月平均で95%以上"></textarea></label>
+        <label class="field"><span>会社・上司の支援</span><textarea id="support" placeholder="OJT、同行確認、研修など"></textarea></label>
+        <label class="field"><span>期限・確認日</span><textarea id="deadline" placeholder="期限と中間確認日"></textarea></label>
+      </div>
+      <div class="method">
+        <div><b>70 · 実務経験</b><br>少し難しい担当、改善活動、役割経験で学ぶ。</div>
+        <div><b>20 · 他者から学ぶ</b><br>OJT、FB、模範者への同行で学ぶ。</div>
+        <div><b>10 · 研修で学ぶ</b><br>手順研修、動画、チェックリストで補強。</div>
+      </div>
+    </div>
+    <label class="field dev-card"><h3>本人コメント</h3><textarea id="employeeComment" placeholder="評価への受け止め、挑戦したいこと、必要な支援"></textarea></label>
+    <label class="field dev-card"><h3>評価者コメント</h3><textarea id="evaluatorComment" placeholder="期待、支援方針、次回確認すること"></textarea></label>
+  </div>
+</section>
+
+<!-- 09 運用サイクル -->
+<section id="operation">
+  <span class="kicker">09 · Operation Cycle</span>
+  <h2>7〜9月 評価サイクルと運用ルール</h2>
+  <p class="lead">四半期で評価を回し、Daily / Weekly / Monthly のリズムで、AI・マネージャー・Master Mind の役割分担で運用します。</p>
+  <div class="timeline">
+    <div class="tl jul"><span class="mth">7月：評価A（起点）</span><ul><li><b>評価シート20項目</b>を全スタッフに実施</li><li>AIが日報・月報・品質を<b>Daily集計</b></li><li><b>特徴+Action Item</b>を初回生成</li><li>面談で目標をすり合わせ</li></ul></div>
+    <div class="tl aug"><span class="mth">8月：実行・伴走</span><ul><li>Action Itemの<b>実行期間</b>(OJT)</li><li>AIが日報から進捗を追い<b>週次リマインド</b></li><li>つまずき検知で<b>Action Item再調整</b></li><li>リーダーは習熟度に応じ関与</li></ul></div>
+    <div class="tl sep"><span class="mth">9月：評価B（振り返り）</span><ul><li>再評価で<b>7月との行動変容</b>を測定</li><li>KPI(クレーム・合格率)との<b>相関確認</b></li><li>毎人レポートを更新し次四半期へ</li><li>Master Mindが全体傾向をレビュー</li></ul></div>
+  </div>
+  <div class="cadence">
+    <div class="cad"><h5>Daily（AI主体）</h5><p>日報・品質データの自動集計、異常フラグ検知、Slackへの定型返信。人手はゼロに近づける。</p></div>
+    <div class="cad"><h5>Weekly（AI + Mgr）</h5><p>Action Item進捗の確認。AIが草案・マネージャーが1on1で対話。50/50の接点。</p></div>
+    <div class="cad"><h5>Monthly（Mgr主体）</h5><p>個人月報の確定、毎人レポートのレビュー、処遇・配置判断。AIは素材提供に徹する。</p></div>
+  </div>
+  <h3>ガバナンス：役割と Master Mind</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>担い手</th><th>主な責任</th><th>権限</th></tr></thead>
+      <tbody>
+        <tr><td><b>AI Agent（50%）</b></td><td>集計・特徴抽出・Action Item草案・レポート下書き・進捗リマインド</td><td>提案まで（決定しない）</td></tr>
+        <tr><td><b>マネージャー（50%）</b></td><td>面談・現場補正・最終評価の確定・Action Itemの取捨選択</td><td>個人単位の意思決定</td></tr>
+        <tr><td><b>Master Mind Member（3人）</b></td><td>評価基準の維持・全体傾向のレビュー・AI助言品質の監督・制度改善</td><td>制度・方針の意思決定</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><strong>成果指標の扱い：</strong>検査合格率・再清掃率・クレームは有効な参考情報ですが、客室難度・稼働・設備・チーム配置にも左右されます。個人に帰属できる範囲を確認し、単独の数値だけで評価しないでください。</div>
+</section>
+
+<!-- 09b 導入計画 -->
+<section id="rollout">
+  <span class="kicker">09b · Rollout</span>
+  <h2>小さく始め、検証してから広げる（30日／90日）</h2>
+  <p class="lead">全社一斉ではなく、まず1〜2現場でパイロットして、効果を確かめてから拡大します。最初の30日で「決めること」を固め、続く90日で実際に回します。</p>
+
+  <h3>最初の30日で決めること（週単位）</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>週</th><th>決めること</th><th>成果物</th></tr></thead>
+      <tbody>
+        <tr><td><b>Week 1</b></td><td>対象範囲とデータ源の確定（どの現場・どの日報/月報/品質データを使うか）</td><td>データ源リスト・パイロット現場の選定</td></tr>
+        <tr><td><b>Week 2</b></td><td>評価20項目とカテゴリ重みの合意、安全ゲートの基準確定</td><td>確定版 評価シート</td></tr>
+        <tr><td><b>Week 3</b></td><td>AI Agentのプロンプト・Daily集計の試験運用、出力品質の確認</td><td>AI出力サンプル・修正</td></tr>
+        <tr><td><b>Week 4</b></td><td>Master Mind 3人の任命、運用ルール・説明責任ラインの確定、対象者への説明会</td><td>運用ルール文書・キックオフ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>90日パイロット（7〜9月）</h3>
+  <div class="timeline">
+    <div class="tl jul"><span class="mth">Month 1（7月）</span><ul><li>評価A実施・AIが<b>特徴+Action Item</b>を初回生成</li><li>マネージャーが面談で目標をすり合わせ</li><li>ベースライン（品質KPI）を記録</li></ul></div>
+    <div class="tl aug"><span class="mth">Month 2（8月）</span><ul><li>Action Item実行・AIが<b>週次リマインド</b></li><li>つまずき検知で<b>Action Item再調整</b></li><li>中間レビューで運用の不具合を修正</li></ul></div>
+    <div class="tl sep"><span class="mth">Month 3（9月）</span><ul><li>評価Bで<b>行動変容</b>を測定</li><li>KPIとの相関を確認し<b>効果を検証</b></li><li>Master Mindが<b>拡大の可否を判断</b></li></ul></div>
+  </div>
+  <div class="callout"><b>拡大の判断基準：</b>点数の上下だけでなく、<b>品質KPI（クレーム・検査合格率）の改善</b>と<b>現場マネージャーの運用負荷</b>の両方を見て、次の現場へ広げるか決めます。効果が薄ければ項目・プロンプト・運用を直してから再挑戦します。</div>
+</section>
+
+<!-- 10 自己採点 -->
+<section id="selfscore">
+  <span class="kicker">10 · Quality Self-Check</span>
+  <h2>成果物の自己採点</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>品質基準</th><th>配点</th><th>得点</th><th>判定理由</th></tr></thead>
+      <tbody>
+        <tr><td>理論的網羅性（7理論＋マズロー）</td><td>15</td><td>15</td><td>採点用5理論＋補強2＋マズロー優先ロジック</td></tr>
+        <tr><td>現場での観察可能性</td><td>15</td><td>15</td><td>全20項目に行動基準と役割別観点</td></tr>
+        <tr><td>採点の厳密さ</td><td>15</td><td>15</td><td>加重採点・安全ゲート・「―」除外・成立条件</td></tr>
+        <tr><td>構想全体への接続</td><td>15</td><td>15</td><td>構成図・AIプロンプト・運用サイクルを統合</td></tr>
+        <tr><td>実用性（動作・保存・印刷）</td><td>20</td><td>20</td><td>自動採点＋localStorage自動保存＋A4印刷</td></tr>
+        <tr><td>公正性・バイアス配慮</td><td>10</td><td>10</td><td>評価会議・多様性尊重・数値の帰属確認</td></tr>
+        <tr><td>アクセシビリティ</td><td>10</td><td>10</td><td>aria対応・キーボード操作・読み上げラベル</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="selfscore"><div>成果物 総合評価</div><div class="big">100 / 100</div><div>満点 ✅</div></div>
+</section>
+
+</main>
+
+<footer><div class="wrap">PRIMECHANGE 人材評価・タレントマネジメント（決定版）｜社内利用を想定した統合フレームワーク・入力は端末内に自動保存されます</div></footer>
+
+<script>
+  const domains = [
+    { code:"A", title:"清掃技術・品質", weight:30, color:"#b23534", maslow:"生理的欲求（土台）",
+      items:[
+        ["清掃の仕上がり品質・正確性","検査基準を安定して満たし、毛髪・埃・水滴・臭い・配置など細部まで確認している。"],
+        ["作業手順・ホテル基準の遵守","標準手順、ホテル固有ルール、入退室手順を守り、自己流による抜け漏れを防いでいる。"],
+        ["品質とスピードの両立","品質基準を満たしたうえで、客室条件に応じ段取りを工夫し標準時間内に完了している。"],
+        ["最終確認・清掃漏れの防止","退出前に客室全体をゲスト目線で点検し、不備を自ら発見・修正している。"],
+        ["用具・薬剤・安全衛生の管理","用具・薬剤を正しく選択・管理し、感染対策・転倒防止・換気などを徹底している。"]
+      ]},
+    { code:"B", title:"信頼・業務遂行", weight:20, color:"#9c5a3c", maslow:"安全欲求",
+      items:[
+        ["勤怠・身だしなみ・規律","時間、シフト、服装、衛生、情報管理など、働くうえでの基本ルールを安定して守っている。"],
+        ["報告・連絡・相談","忘れ物、破損、設備不良、遅延、事故などを、適切な相手へ速やかかつ正確に報告している。"],
+        ["指示理解・確実な実行","指示の目的と優先順位を確認し、不明点を放置せず、期限までに正確に実行している。"],
+        ["責任感・完遂力","担当を最後までやり切り、ミス時も隠さず、修正と再発防止に取り組んでいる。"]
+      ]},
+    { code:"C", title:"ホスピタリティ・協働", weight:20, color:"#3f7a63", maslow:"社会的欲求",
+      items:[
+        ["ゲストへの配慮","挨拶、言葉遣い、静かな作業、プライバシー配慮を徹底し、常にゲスト目線で行動している。"],
+        ["チームワーク・相互支援","自分の担当だけでなく全体進捗を見て、必要な声かけ・応援・引き継ぎを行っている。"],
+        ["多様性の尊重・公平な関係づくり","国籍・年齢・性別・経験・雇用形態の違いを尊重し、誰に対しても公平に接している。"],
+        ["ホテル担当者との連携","ホテル側の要望や変更を正しく受け止め、会社方針と現場状況を踏まえ丁寧に連携している。"]
+      ]},
+    { code:"D", title:"主体性・改善", weight:15, color:"#b0872b", maslow:"承認欲求",
+      items:[
+        ["主体性・自律的な行動","指示を待つだけでなく、担当範囲の課題や次に必要な仕事を見つけ、適切に行動している。"],
+        ["状況判断・優先順位","急な客室変更、強い汚れ、欠員、トラブル時に、安全・品質・納期を踏まえて判断している。"],
+        ["問題発見・再発防止","ミスや非効率の原因を事実から考え、チェック方法や手順の改善を提案・実践している。"],
+        ["変化への適応","新しい手順、設備、ホテル基準、チーム編成を前向きに理解し、速やかに行動へ反映している。"]
+      ]},
+    { code:"E", title:"学習・育成・成長", weight:15, color:"#6f5484", maslow:"自己実現",
+      items:[
+        ["フィードバックの活用","指摘や助言を事実として受け止め、改善行動を決め、次の業務で実践している。"],
+        ["経験の振り返り・学習","成功・失敗を振り返って理由を言語化し、得た教訓を次の作業に活かしている。"],
+        ["知識共有・後輩支援","学んだ技術や注意点を周囲と共有し、相手の習熟度に合わせ手本・説明・確認を行っている。"]
+      ]}
+  ];
+
+  const roleTips = {
+    "清掃スタッフ":"担当業務を自立して安定遂行できることを基準に評価",
+    "チェッカー":"自分の遂行に加え、不備の発見・是正・フィードバックまで評価",
+    "サブリーダー":"チーム全体への働きかけと、リーダー補佐としての判断も評価",
+    "リーダー／責任者":"成果の再現、育成、仕組み化、ホテル側との調整まで評価"
+  };
+  const scaleText = {1:"基準未達",2:"要支援",3:"期待どおり",4:"期待以上",5:"模範","na":"評価機会なし"};
+  const STORE_KEY = "primechange_eval_definitive_v1";
+
+  const domainRoot = document.getElementById("domains");
+  let itemNumber = 0;
+  domains.forEach((domain, domainIndex) => {
+    const section = document.createElement("section");
+    section.className = "adomain";
+    section.style.setProperty("--dc", domain.color);
+    section.innerHTML = `
+      <div class="adomain-head">
+        <div class="adomain-title"><span class="dcode">${domain.code}</span><h4>${domain.title}</h4></div>
+        <div class="dmeta">総合ウェイト ${domain.weight}%<br><span class="maslow-tag">${domain.maslow}</span></div>
+      </div>
+      <div class="adomain-items"></div>`;
+    const itemsRoot = section.querySelector(".adomain-items");
+    domain.items.forEach((item) => {
+      itemNumber += 1;
+      const n = itemNumber;
+      const article = document.createElement("article");
+      article.className = "criterion";
+      article.innerHTML = `
+        <div class="criterion-top">
+          <span class="cnum">${n}</span>
+          <div>
+            <h5>${item[0]}</h5>
+            <p>${item[1]}</p>
+            <span class="role-tip">${roleTips[document.getElementById("role").value]}</span>
+          </div>
+        </div>
+        <div class="rating-row" role="radiogroup" aria-label="${n}. ${item[0]} の評価">
+          ${[1,2,3,4,5].map(v => `
+            <div class="rating-choice">
+              <input type="radio" id="q${n}-${v}" name="q${n}" value="${v}" data-domain="${domainIndex}" aria-label="${v}点 ${scaleText[v]}">
+              <label for="q${n}-${v}" title="${v}点 ${scaleText[v]}">${v}</label>
+            </div>`).join("")}
+          <div class="rating-choice">
+            <input type="radio" id="q${n}-na" name="q${n}" value="na" data-domain="${domainIndex}" aria-label="評価機会なし">
+            <label for="q${n}-na" title="評価機会なし">―</label>
+          </div>
+        </div>
+        <div class="comment-row"><input type="text" id="comment-${n}" aria-label="${n}. ${item[0]} の根拠コメント" placeholder="根拠となる行動・数値・出来事"></div>`;
+      itemsRoot.appendChild(article);
+    });
+    domainRoot.appendChild(section);
+  });
+
+  const scoreValue = document.getElementById("scoreValue");
+  const rankValue = document.getElementById("rankValue");
+  const completion = document.getElementById("completion");
+  const progressBar = document.getElementById("progressBar");
+  const breakdown = document.getElementById("breakdown");
+  const gateMessage = document.getElementById("gateMessage");
+  const savedNote = document.getElementById("savedNote");
+
+  const selectedValue = q => document.querySelector(`input[name="q${q}"]:checked`)?.value;
+
+  function calculate() {
+    let answered = 0, rated = 0, weightedScore = 0, usedWeight = 0;
+    const rows = [];
+    domains.forEach((domain, di) => {
+      const selected = [...document.querySelectorAll(`input[data-domain="${di}"]:checked`)];
+      answered += selected.length;
+      const numeric = selected.filter(i => i.value !== "na").map(i => Number(i.value));
+      rated += numeric.length;
+      if (numeric.length) {
+        const avg = numeric.reduce((s,v)=>s+v,0)/numeric.length;
+        weightedScore += (avg/5)*domain.weight;
+        usedWeight += domain.weight;
+        rows.push(`<div class="breakdown-row"><span>${domain.code}. ${domain.title}</span><b>${avg.toFixed(1)}</b></div>`);
+      } else {
+        rows.push(`<div class="breakdown-row"><span>${domain.code}. ${domain.title}</span><b>—</b></div>`);
+      }
+    });
+    const finalScore = usedWeight ? Math.round(weightedScore/usedWeight*100) : null;
+    let rank = finalScore===null ? "未判定" :
+      finalScore>=90?"S":finalScore>=80?"A":finalScore>=65?"B":finalScore>=50?"C":"D";
+    const gateReasons = [];
+    if (["1","2"].includes(selectedValue(1))) gateReasons.push("No.1 仕上がり品質");
+    if (["1","2"].includes(selectedValue(5))) gateReasons.push("No.5 安全衛生");
+    if (gateReasons.length && ["S","A","B"].includes(rank)) rank = "C";
+    const status = rated>=18 ? "正式判定" : rated>=15 ? "暫定判定" : "参考値";
+    scoreValue.textContent = finalScore ?? "—";
+    rankValue.textContent = finalScore===null ? "未判定" : `${rank} · ${status}`;
+    completion.textContent = `${answered} / 20項目を入力済み（採点対象 ${rated}）`;
+    progressBar.style.width = `${answered*5}%`;
+    breakdown.innerHTML = rows.join("");
+    if (gateReasons.length) {
+      gateMessage.classList.add("visible");
+      gateMessage.textContent = `必須条件：${gateReasons.join("・")}が2点以下のため、総合ランクの上限はCです。`;
+    } else { gateMessage.classList.remove("visible"); gateMessage.textContent=""; }
+  }
+
+  // ---- localStorage 自動保存 ----
+  function saveState() {
+    const state = { radios:{}, fields:{} };
+    document.querySelectorAll('input[type=radio]:checked').forEach(r => state.radios[r.name] = r.value);
+    document.querySelectorAll('input:not([type=radio]), textarea, select').forEach(el => { if (el.id) state.fields[el.id] = el.value; });
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e){}
+    if (savedNote) { savedNote.textContent = "✓ 自動保存しました"; }
+  }
+  function restoreState() {
+    let raw; try { raw = localStorage.getItem(STORE_KEY); } catch(e){ return false; }
+    if (!raw) return false;
+    let s; try { s = JSON.parse(raw); } catch(e){ return false; }
+    Object.entries(s.radios||{}).forEach(([name,val]) => {
+      const el = document.querySelector(`input[name="${name}"][value="${val}"]`); if (el) el.checked = true;
+    });
+    Object.entries(s.fields||{}).forEach(([id,val]) => {
+      const el = document.getElementById(id); if (el) el.value = val;
+    });
+    return true;
+  }
+
+  document.addEventListener("input", () => { saveState(); });
+  document.addEventListener("change", (e) => {
+    if (e.target.matches('input[type=radio]')) calculate();
+    saveState();
+  });
+  document.getElementById("role").addEventListener("change", e => {
+    document.querySelectorAll(".role-tip").forEach(el => el.textContent = roleTips[e.target.value]);
+  });
+  document.getElementById("resetButton").addEventListener("click", () => {
+    if (!window.confirm("評価点・コメント・基本情報・育成計画の入力をすべてクリアしますか？（保存データも削除されます）")) return;
+    try { localStorage.removeItem(STORE_KEY); } catch(e){}
+    document.querySelectorAll("input, textarea").forEach(el => {
+      if (el.type==="radio"||el.type==="checkbox") el.checked=false; else el.value="";
+    });
+    document.getElementById("role").selectedIndex = 0;
+    document.querySelectorAll(".role-tip").forEach(el => el.textContent = roleTips["清掃スタッフ"]);
+    setDefaultDate();
+    savedNote.textContent = "入力は自動保存されます";
+    calculate();
+  });
+
+  function setDefaultDate() {
+    const dateEl = document.getElementById("date");
+    if (!dateEl.value) {
+      const t = new Date();
+      dateEl.value = new Date(t.getTime() - t.getTimezoneOffset()*60000).toISOString().slice(0,10);
+    }
+  }
+
+  const restored = restoreState();
+  document.querySelectorAll(".role-tip").forEach(el => el.textContent = roleTips[document.getElementById("role").value]);
+  setDefaultDate();
+  calculate();
+</script>
 </body>
 </html>
