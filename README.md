@@ -7,6 +7,8 @@ Claude Code と Codex が協働し、ダブル監査を経て統合した最強�
 
 - **[人材評価・タレントマネジメント 最強版（index.html）](./index.html)**
   GitHub Pages：`https://takahashimitsugu329.github.io/primechange-talent-management/`
+- **[著名な人事評価理論 上位5選](./performance-appraisal-theories.html)**
+  MBO、コンピテンシー、目標設定理論、BARS、360度評価の詳細ガイド
 
 ## 主な内容（全14セクション）
 
