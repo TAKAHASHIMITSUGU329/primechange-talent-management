@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ホテル清掃会社PRIMECHANGEの人材評価・育成レポート。20項目、5段階評価、自動集計、印刷対応。">
+  <title>PRIMECHANGE 人材評価・育成レポート</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f7f7;
+      --surface: #fff;
+      --surface-2: #fbfbfb;
+      --ink: #333333;
+      --ink-2: #555555;
+      --muted: #949494;
+      --line: #e5e5e5;
+      --line-soft: #eeeeee;
+      --navy: #c23b3a;
+      --navy-2: #c13d3a;
+      --navy-soft: #f9eaea;
+      --green: #16744a;
+      --green-soft: #e8f5ee;
+      --amber: #a66a00;
+      --amber-soft: #fff4dc;
+      --red: #c23b3a;
+      --red-soft: #f9eaea;
+      --purple: #765d66;
+      --shadow: 0 1px 2px rgba(15, 25, 35, .04), 0 12px 34px rgba(15, 25, 35, .07);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+
+    .hero {
+      color: var(--ink);
+      border-top: 6px solid var(--navy);
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 84% 14%, rgba(194,59,58,.09), transparent 28%),
+        #fff;
+      padding: 58px 0 48px;
+    }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(32px, 5vw, 51px);
+      line-height: 1.16;
+      letter-spacing: -.035em;
+    }
+    .hero-lede {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: var(--ink-2);
+      font-size: 16px;
+    }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px; }
+    .hero-chip {
+      padding: 6px 12px;
+      border: 1px solid rgba(194,59,58,.24);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--navy);
+      font-size: 12px;
+    }
+
+    .toolbar {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.93);
+      backdrop-filter: blur(12px);
+    }
+    .toolbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 58px;
+      gap: 16px;
+    }
+    .toolbar-nav { display: flex; gap: 6px; overflow-x: auto; }
+    .toolbar a {
+      padding: 7px 10px;
+      border-radius: 8px;
+      color: var(--ink-2);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .toolbar a:hover { background: var(--navy-soft); color: var(--navy); }
+    .actions { display: flex; gap: 8px; flex: none; }
+    .btn {
+      min-height: 38px;
+      padding: 7px 14px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 750;
+    }
+    .btn.primary { border-color: var(--navy); background: var(--navy); color: #fff; }
+    .btn:hover { transform: translateY(-1px); }
+
+    main { padding: 44px 0 80px; }
+    section { scroll-margin-top: 76px; margin-bottom: 46px; }
+    .section-head { max-width: 760px; margin-bottom: 20px; }
+    .section-kicker {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--navy-2);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h2 { margin: 0; font-size: 26px; line-height: 1.3; letter-spacing: -.02em; }
+    .section-head p { margin: 9px 0 0; color: var(--ink-2); font-size: 14px; }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: -72px;
+      position: relative;
+      z-index: 2;
+    }
+    .principle {
+      min-height: 126px;
+      padding: 19px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .principle b { display: block; margin-bottom: 7px; color: var(--navy); font-size: 14px; }
+    .principle span { display: block; color: var(--ink-2); font-size: 12.5px; line-height: 1.55; }
+
+    .theory-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .theory {
+      position: relative;
+      min-height: 190px;
+      padding: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+    .theory::after {
+      content: attr(data-num);
+      position: absolute;
+      right: 8px;
+      bottom: -25px;
+      color: var(--navy-soft);
+      font-size: 82px;
+      font-weight: 850;
+      line-height: 1;
+    }
+    .theory h3 { position: relative; z-index: 1; margin: 0 0 7px; font-size: 15px; line-height: 1.45; }
+    .theory .author { position: relative; z-index: 1; color: var(--navy-2); font-size: 11px; font-weight: 750; }
+    .theory p { position: relative; z-index: 1; margin: 12px 0 0; color: var(--ink-2); font-size: 12px; line-height: 1.6; }
+    .note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border: 1px solid #ecd7a9;
+      border-radius: 11px;
+      background: var(--amber-soft);
+      color: #76501a;
+      font-size: 12.5px;
+    }
+
+    .profile-card {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    label.field { display: block; }
+    .field span {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink-2);
+      font-size: 11px;
+      font-weight: 750;
+    }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      min-height: 42px;
+      padding: 9px 11px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      outline: none;
+      background: #fff;
+      color: var(--ink);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: var(--navy-2);
+      box-shadow: 0 0 0 3px rgba(61,103,152,.12);
+    }
+
+    .scale {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .scale-item {
+      padding: 13px;
+      border-radius: 11px;
+      background: var(--surface-2);
+      border-top: 3px solid var(--scale);
+    }
+    .scale-item strong { font-size: 13px; }
+    .scale-item p { margin: 5px 0 0; color: var(--ink-2); font-size: 11.5px; line-height: 1.55; }
+
+    .assessment-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 270px;
+      gap: 20px;
+      align-items: start;
+    }
+    .domain {
+      margin-bottom: 20px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .domain-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 19px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+    .domain-title { display: flex; align-items: center; gap: 10px; }
+    .domain-code {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--domain);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 850;
+    }
+    .domain h3 { margin: 0; font-size: 15px; }
+    .weight { color: var(--ink-2); font-size: 11px; font-weight: 700; }
+    .criterion { padding: 18px 19px; border-bottom: 1px solid var(--line-soft); }
+    .criterion:last-child { border-bottom: 0; }
+    .criterion-top { display: flex; gap: 12px; }
+    .num {
+      flex: none;
+      display: grid;
+      width: 27px;
+      height: 27px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--ink-2);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .criterion-copy { min-width: 0; flex: 1; }
+    .criterion h4 { margin: 1px 0 4px; font-size: 14px; }
+    .criterion p { margin: 0; color: var(--ink-2); font-size: 12px; line-height: 1.6; }
+    .role-tip {
+      display: inline-block;
+      margin-top: 7px;
+      color: var(--navy-2);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .rating-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 6px;
+      margin-top: 12px;
+      padding-left: 39px;
+    }
+    .rating-choice { position: relative; }
+    .rating-choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .rating-choice label {
+      display: grid;
+      min-height: 38px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink-2);
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .rating-choice input:focus-visible + label { outline: 3px solid rgba(61,103,152,.25); }
+    .rating-choice input:checked + label {
+      border-color: var(--domain);
+      background: color-mix(in srgb, var(--domain) 10%, white);
+      color: var(--domain);
+    }
+    .comment-row { margin: 9px 0 0 39px; }
+    .comment-row input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      outline: 0;
+      color: var(--ink);
+      font-size: 12px;
+    }
+    .comment-row input:focus { border-color: var(--navy-2); background: var(--navy-soft); }
+
+    .score-card {
+      position: sticky;
+      top: 78px;
+      padding: 20px;
+      border-radius: 16px;
+      background: #333333;
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+    .score-card .label { color: #bcd0e5; font-size: 11px; font-weight: 750; letter-spacing: .08em; }
+    .score-main { display: flex; align-items: end; gap: 6px; margin: 4px 0 2px; }
+    .score-value { font-size: 48px; font-weight: 800; line-height: 1; letter-spacing: -.04em; }
+    .score-unit { padding-bottom: 5px; color: #bcd0e5; font-size: 13px; }
+    .rank {
+      display: inline-flex;
+      align-items: center;
+      min-width: 38px;
+      min-height: 30px;
+      justify-content: center;
+      margin-top: 10px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.13);
+      font-weight: 850;
+    }
+    .progress { height: 7px; margin: 16px 0 8px; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.12); }
+    .progress > span { display: block; width: 0; height: 100%; border-radius: inherit; background: #75c69b; transition: width .2s; }
+    .completion { color: #c4d4e5; font-size: 11px; }
+    .score-breakdown { margin-top: 17px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.14); }
+    .breakdown-row { display: flex; justify-content: space-between; gap: 8px; margin: 7px 0; color: #d8e3ee; font-size: 11px; }
+    .breakdown-row b { color: #fff; }
+    .gate {
+      display: none;
+      margin-top: 14px;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(242, 172, 65, .16);
+      color: #ffe1aa;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+    .gate.visible { display: block; }
+
+    .rank-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .rank-box { padding: 15px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+    .rank-box strong { display: block; font-size: 18px; }
+    .rank-box span { color: var(--ink-2); font-size: 11.5px; }
+    .guardrails {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .guardrail { padding: 16px; border-radius: 12px; background: var(--red-soft); color: #7f3030; font-size: 12px; }
+    .guardrail b { display: block; margin-bottom: 4px; }
+
+    .development {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .dev-card {
+      padding: 19px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+    .dev-card h3 { margin: 0 0 12px; color: var(--navy); font-size: 14px; }
+    .dev-card textarea { width: 100%; min-height: 110px; resize: vertical; }
+    .dev-card.full { grid-column: 1 / -1; }
+    .goal-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px; }
+    .method {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 13px;
+    }
+    .method div { padding: 12px; border-radius: 10px; background: var(--surface-2); color: var(--ink-2); font-size: 11.5px; }
+    .method b { color: var(--navy); }
+
+    .calibration { width: 100%; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th, td { padding: 11px 13px; text-align: left; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+    th { background: var(--surface-2); color: var(--ink-2); font-size: 11px; }
+    tr:last-child td { border-bottom: 0; }
+    .footer { padding: 24px 0 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+
+    @media (max-width: 900px) {
+      .principles, .theory-grid { grid-template-columns: repeat(2, 1fr); }
+      .principles { margin-top: -34px; }
+      .profile-card { grid-template-columns: repeat(2, 1fr); }
+      .assessment-layout { grid-template-columns: 1fr; }
+      .score-card { position: static; }
+      .rank-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 22px, 1120px); }
+      .hero { padding: 42px 0 56px; }
+      .toolbar-nav { display: none; }
+      .toolbar-inner { justify-content: flex-end; }
+      .principles, .theory-grid, .profile-card, .scale, .rank-grid,
+      .guardrails, .development, .goal-grid, .method { grid-template-columns: 1fr; }
+      .principles { margin-top: -32px; }
+      .theory { min-height: 150px; }
+      .rating-row { padding-left: 0; }
+      .comment-row { margin-left: 0; }
+      .dev-card.full { grid-column: auto; }
+      .actions .reset-text { display: none; }
+    }
+
+    @media print {
+      @page { size: A4 portrait; margin: 11mm; }
+      body { background: #fff; color: #111; font-size: 9pt; }
+      .wrap { width: 100%; }
+      .hero { padding: 10mm 0 8mm; background: none; color: #111; border-bottom: 2px solid #294b73; }
+      .eyebrow, .hero-lede { color: #294b73; }
+      .hero-chip { border-color: #bbb; background: none; }
+      .toolbar, .principles, #theories, #criteria, .footer { display: none !important; }
+      main { padding: 8mm 0 0; }
+      section { margin-bottom: 8mm; }
+      .section-head { margin-bottom: 4mm; }
+      .profile-card, .domain, .dev-card, .rank-box, .calibration {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+      .assessment-layout { display: block; }
+      .score-card {
+        position: static;
+        margin-bottom: 6mm;
+        background: #eef2f6;
+        color: #111;
+        box-shadow: none;
+        border: 1px solid #999;
+      }
+      .score-card .label, .completion, .breakdown-row, .breakdown-row b, .score-unit { color: #333; }
+      .progress { background: #ddd; }
+      .criterion { padding: 3mm 4mm; break-inside: avoid; }
+      .criterion p { font-size: 8pt; }
+      .rating-choice label { min-height: 7mm; }
+      .comment-row input { background: transparent; }
+      .domain { break-inside: auto; page-break-before: auto; }
+      .domain-head { break-after: avoid; }
+      .development { display: grid; grid-template-columns: 1fr 1fr; }
+      textarea { border-color: #aaa !important; min-height: 26mm !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">PRIMECHANGE · People Development Framework</p>
+      <h1>人材評価・育成レポート</h1>
+      <p class="hero-lede">ホテル清掃の品質と安全を守りながら、一人ひとりの成長を具体的な行動で捉える評価票。点数をつけることではなく、次の成長行動を合意することが目的です。</p>
+      <div class="hero-chips">
+        <span class="hero-chip">全20項目</span>
+        <span class="hero-chip">5段階・行動評価</span>
+        <span class="hero-chip">スタッフ／チェッカー／リーダー対応</span>
+        <span class="hero-chip">自動集計・印刷対応</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="toolbar" aria-label="ページ内ナビゲーション">
+    <div class="wrap toolbar-inner">
+      <div class="toolbar-nav">
+        <a href="#theories">理論</a>
+        <a href="#criteria">評価基準</a>
+        <a href="#assessment">評価票</a>
+        <a href="#development">育成計画</a>
+        <a href="#operation">運用ルール</a>
+      </div>
+      <div class="actions">
+        <button class="btn" id="resetButton" type="button"><span class="reset-text">入力を</span>クリア</button>
+        <button class="btn primary" type="button" onclick="window.print()">印刷・PDF保存</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section class="principles" aria-label="評価の基本原則">
+      <div class="principle"><b>行動事実で評価</b><span>印象や性格ではなく、評価期間中に確認した具体的な行動・結果を根拠にします。</span></div>
+      <div class="principle"><b>品質を最優先</b><span>スピードは、清掃品質と安全基準を満たしている場合にのみ高く評価します。</span></div>
+      <div class="principle"><b>役割に応じて判定</b><span>同じ項目でも、スタッフ・チェッカー・リーダーそれぞれの期待水準で評価します。</span></div>
+      <div class="principle"><b>評価を育成につなぐ</b><span>強みと改善点を明確にし、次回までの目標・支援・期限を合意します。</span></div>
+    </section>
+
+    <section id="theories">
+      <div class="section-head">
+        <span class="section-kicker">01 · Foundation</span>
+        <h2>評価の土台となる5つの理論</h2>
+        <p>現場技能、成果行動、経験からの学習、主体性、育成方法を重複なくカバーします。</p>
+      </div>
+      <div class="theory-grid">
+        <article class="theory" data-num="1"><h3>ドレイファスの技能習得モデル</h3><span class="author">H. &amp; S. Dreyfus</span><p>手順どおりに行う段階から、状況に応じて自律判断できる段階まで、清掃技能の習熟を捉えます。</p></article>
+        <article class="theory" data-num="2"><h3>コンピテンシー理論</h3><span class="author">D. McClelland</span><p>年齢・学歴・経験年数ではなく、安定した成果につながる具体的な行動を評価します。</p></article>
+        <article class="theory" data-num="3"><h3>コルブの経験学習モデル</h3><span class="author">D. Kolb</span><p>経験、振り返り、教訓化、再実践のサイクルを通じた、現場での成長力を評価します。</p></article>
+        <article class="theory" data-num="4"><h3>自己決定理論</h3><span class="author">E. Deci &amp; R. Ryan</span><p>自律性、有能感、関係性を育て、指示待ちではない主体的な行動とチームへの貢献を促します。</p></article>
+        <article class="theory" data-num="5"><h3>状況対応型リーダーシップ</h3><span class="author">P. Hersey &amp; K. Blanchard</span><p>相手の習熟度に合わせて、指示、伴走、支援、権限委譲を使い分ける育成行動を捉えます。</p></article>
+      </div>
+      <div class="note"><strong>補足：</strong>カークパトリックモデルは研修制度全体の効果測定に、ハーズバーグの二要因理論は職場環境・定着施策の改善に使います。いずれも個人の性格や意欲を直接採点する理論としては扱いません。</div>
+    </section>
+
+    <section id="criteria">
+      <div class="section-head">
+        <span class="section-kicker">02 · Rating Standard</span>
+        <h2>評価者が変わってもぶれにくい5段階基準</h2>
+        <p>「3＝期待どおり」を基準に、頻度・自立度・影響範囲で上下を判断します。評価機会がない項目は「―」を選び、推測で採点しません。</p>
+      </div>
+      <div class="scale">
+        <div class="scale-item" style="--scale:#b53939"><strong>1 · 基準未達</strong><p>基準を満たさず、継続的な指導と確認が必要。</p></div>
+        <div class="scale-item" style="--scale:#c47a22"><strong>2 · 要支援</strong><p>一部できるが、指示・確認・手直しが必要。</p></div>
+        <div class="scale-item" style="--scale:#71808f"><strong>3 · 期待どおり</strong><p>通常業務を自立して安定的に遂行できる。</p></div>
+        <div class="scale-item" style="--scale:#3d6798"><strong>4 · 期待以上</strong><p>高い水準で実行し、周囲にも良い影響がある。</p></div>
+        <div class="scale-item" style="--scale:#16744a"><strong>5 · 模範</strong><p>常に高水準。改善や他者支援にも展開できる。</p></div>
+      </div>
+    </section>
+
+    <section id="assessment">
+      <div class="section-head">
+        <span class="section-kicker">03 · Assessment</span>
+        <h2>20項目 人材評価シート</h2>
+        <p>評価対象期間を通じた複数の事実で判断してください。コメント欄には、点数の根拠となる出来事や数値を短く記録します。</p>
+      </div>
+
+      <div class="profile-card">
+        <label class="field"><span>被評価者</span><input type="text" id="employeeName" placeholder="氏名"></label>
+        <label class="field"><span>役割</span><select id="role"><option>清掃スタッフ</option><option>チェッカー</option><option>サブリーダー</option><option>リーダー／責任者</option></select></label>
+        <label class="field"><span>所属ホテル・現場</span><input type="text" id="location" placeholder="ホテル名"></label>
+        <label class="field"><span>評価期間</span><input type="text" id="period" placeholder="例：2026年4月〜9月"></label>
+        <label class="field"><span>評価者</span><input type="text" id="evaluator" placeholder="氏名"></label>
+        <label class="field"><span>評価日</span><input type="date" id="date"></label>
+        <label class="field"><span>担当経験</span><input type="text" id="experience" placeholder="例：入社1年2か月"></label>
+        <label class="field"><span>面談日</span><input type="date" id="meetingDate"></label>
+      </div>
+
+      <div class="assessment-layout" style="margin-top:20px">
+        <div id="domains"></div>
+        <aside class="score-card" aria-live="polite">
+          <div class="label">総合スコア</div>
+          <div class="score-main"><span class="score-value" id="scoreValue">—</span><span class="score-unit">/ 100</span></div>
+          <div class="rank" id="rankValue">未判定</div>
+          <div class="progress"><span id="progressBar"></span></div>
+          <div class="completion" id="completion">0 / 20項目を評価済み</div>
+          <div class="score-breakdown" id="breakdown"></div>
+          <div class="gate" id="gateMessage"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="result-rules">
+      <div class="section-head">
+        <span class="section-kicker">04 · Result Rules</span>
+        <h2>総合ランクと必須条件</h2>
+        <p>カテゴリーごとの重みを用いて100点換算します。点数だけで処遇を自動決定せず、評価会議と面談を通じて確定します。</p>
+      </div>
+      <div class="rank-grid">
+        <div class="rank-box"><strong>S · 90–100</strong><span>模範・次の役割候補</span></div>
+        <div class="rank-box"><strong>A · 80–89</strong><span>期待以上・高い自立度</span></div>
+        <div class="rank-box"><strong>B · 65–79</strong><span>期待どおり・安定遂行</span></div>
+        <div class="rank-box"><strong>C · 50–64</strong><span>重点育成・支援が必要</span></div>
+        <div class="rank-box"><strong>D · 0–49</strong><span>基礎からの再指導</span></div>
+      </div>
+      <div class="guardrails">
+        <div class="guardrail"><b>品質・安全ゲート</b>No.1「仕上がり品質」またはNo.5「安全衛生」が2点以下の場合、総合ランクの上限をCとします。</div>
+        <div class="guardrail"><b>評価成立条件</b>20項目中15項目以上の評価で暫定判定、18項目以上で正式判定とします。「―」は分母から除外します。</div>
+      </div>
+    </section>
+
+    <section id="development">
+      <div class="section-head">
+        <span class="section-kicker">05 · Development Plan</span>
+        <h2>評価を次の成長行動につなげる</h2>
+        <p>改善点を並べすぎず、強み1つ・優先課題1〜2つに絞ります。本人と評価者が、行動・支援・期限を合意します。</p>
+      </div>
+      <div class="development">
+        <label class="field dev-card"><h3>本人の強み・継続する行動</h3><textarea id="strengths" placeholder="具体的な行動事実と、今後も活かす場面"></textarea></label>
+        <label class="field dev-card"><h3>優先して改善する課題</h3><textarea id="improvements" placeholder="改善が必要な行動と、その影響"></textarea></label>
+        <div class="dev-card full">
+          <h3>次回までのSMART目標</h3>
+          <div class="goal-grid">
+            <label class="field"><span>具体的な目標・達成基準</span><textarea id="goal" placeholder="例：客室検査の初回合格率を3か月平均で95%以上にする"></textarea></label>
+            <label class="field"><span>会社・上司の支援</span><textarea id="support" placeholder="OJT、同行確認、研修など"></textarea></label>
+            <label class="field"><span>期限・確認日</span><textarea id="deadline" placeholder="期限と中間確認日"></textarea></label>
+          </div>
+          <div class="method">
+            <div><b>70 · 実務経験</b><br>少し難しい担当、改善活動、役割経験を通じて学ぶ。</div>
+            <div><b>20 · 他者から学ぶ</b><br>OJT、フィードバック、模範者への同行で学ぶ。</div>
+            <div><b>10 · 研修で学ぶ</b><br>手順研修、動画、チェックリストで知識を補強する。</div>
+          </div>
+        </div>
+        <label class="field dev-card"><h3>本人コメント</h3><textarea id="employeeComment" placeholder="評価への受け止め、挑戦したいこと、必要な支援"></textarea></label>
+        <label class="field dev-card"><h3>評価者コメント</h3><textarea id="evaluatorComment" placeholder="期待、支援方針、次回確認すること"></textarea></label>
+      </div>
+    </section>
+
+    <section id="operation">
+      <div class="section-head">
+        <span class="section-kicker">06 · Fair Operation</span>
+        <h2>公正に運用するためのルール</h2>
+        <p>評価票の精度は、項目だけでなく運用で決まります。半期ごとの正式評価と、月次の短いフィードバックを組み合わせます。</p>
+      </div>
+      <div class="calibration">
+        <table>
+          <thead><tr><th>タイミング</th><th>実施内容</th><th>確認する証拠</th><th>注意点</th></tr></thead>
+          <tbody>
+            <tr><td>日常</td><td>行動事実を短く記録</td><td>検査結果、再清掃、報告、顧客・ホテル側の声</td><td>失敗だけでなく良い行動も記録</td></tr>
+            <tr><td>月次</td><td>10〜15分の振り返り</td><td>前月目標、品質、安全、本人の困りごと</td><td>期末に突然指摘しない</td></tr>
+            <tr><td>半期</td><td>本人評価→上司評価→面談</td><td>期間全体の複数事実、定量値、役割期待</td><td>直近の出来事だけで判断しない</td></tr>
+            <tr><td>評価会議</td><td>現場間の基準合わせ</td><td>3点・4点・5点の実例、役割・担当難度</td><td>甘辛差、好き嫌い、国籍・年齢等の偏りを確認</td></tr>
+            <tr><td>確定後</td><td>育成目標と支援を合意</td><td>SMART目標、担当者、期限、中間確認日</td><td>総合点だけを通知して終わらせない</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><strong>成果指標の扱い：</strong>検査合格率、再清掃率、クレームなどは有効な参考情報ですが、客室難度・稼働状況・設備・チーム配置にも左右されます。個人に帰属できる範囲を確認し、単独の数値だけで評価しないでください。</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">PRIMECHANGE 人材評価・育成レポート｜社内利用を想定した評価フレームワーク</div>
+  </footer>
+
+  <script>
+    const domains = [
+      {
+        code: "A", title: "清掃技術・品質", weight: 30, color: "#c23b3a",
+        items: [
+          ["清掃の仕上がり品質・正確性", "検査基準を安定して満たし、毛髪・埃・水滴・臭い・配置など細部まで確認している。"],
+          ["作業手順・ホテル基準の遵守", "標準手順、ホテル固有ルール、入室・退出手順を守り、自己流による抜け漏れを防いでいる。"],
+          ["品質とスピードの両立", "品質基準を満たしたうえで、客室条件に応じて段取りを工夫し標準時間内に完了している。"],
+          ["最終確認・清掃漏れの防止", "退出前に客室全体をゲスト目線で点検し、不備を自ら発見・修正している。"],
+          ["用具・薬剤・安全衛生の管理", "用具・薬剤を正しく選択・管理し、感染対策、転倒防止、換気などを徹底している。"]
+        ]
+      },
+      {
+        code: "B", title: "信頼・業務遂行", weight: 20, color: "#555555",
+        items: [
+          ["勤怠・身だしなみ・規律", "時間、シフト、服装、衛生、情報管理など、働くうえでの基本ルールを安定して守っている。"],
+          ["報告・連絡・相談", "忘れ物、破損、設備不良、進捗遅延、事故などを、適切な相手へ速やかかつ正確に報告している。"],
+          ["指示理解・確実な実行", "指示の目的と優先順位を確認し、不明点を放置せず、期限までに正確に実行している。"],
+          ["責任感・完遂力", "自分の担当を最後までやり切り、ミスがあった場合も隠さず、修正と再発防止に取り組んでいる。"]
+        ]
+      },
+      {
+        code: "C", title: "ホスピタリティ・協働", weight: 20, color: "#16744a",
+        items: [
+          ["ゲストへの配慮", "挨拶、言葉遣い、静かな作業、プライバシー配慮を徹底し、常にゲスト目線で行動している。"],
+          ["チームワーク・相互支援", "自分の担当だけでなく全体進捗を見て、必要な声かけ、応援、引き継ぎを行っている。"],
+          ["多様性の尊重・公平な関係づくり", "国籍、年齢、性別、経験、雇用形態の違いを尊重し、誰に対しても公平に接している。"],
+          ["ホテル担当者との連携", "ホテル側の要望や変更を正しく受け止め、会社方針と現場状況を踏まえて丁寧に連携している。"]
+        ]
+      },
+      {
+        code: "D", title: "主体性・改善", weight: 15, color: "#a66a00",
+        items: [
+          ["主体性・自律的な行動", "指示を待つだけでなく、担当範囲の課題や次に必要な仕事を見つけ、適切に行動している。"],
+          ["状況判断・優先順位", "急な客室変更、強い汚れ、欠員、トラブル時に、安全・品質・納期を踏まえて判断している。"],
+          ["問題発見・再発防止", "ミスや非効率の原因を事実から考え、チェック方法や手順の改善を提案・実践している。"],
+          ["変化への適応", "新しい手順、設備、ホテル基準、チーム編成を前向きに理解し、速やかに行動へ反映している。"]
+        ]
+      },
+      {
+        code: "E", title: "学習・育成・成長", weight: 15, color: "#765d66",
+        items: [
+          ["フィードバックの活用", "指摘や助言を事実として受け止め、改善行動を決め、次の業務で実践している。"],
+          ["経験の振り返り・学習", "成功・失敗を振り返って理由を言語化し、得た教訓を次の作業に活かしている。"],
+          ["知識共有・後輩支援", "学んだ技術や注意点を周囲と共有し、相手の習熟度に合わせて手本・説明・確認を行っている。"]
+        ]
+      }
+    ];
+
+    const roleTips = {
+      "清掃スタッフ": "担当業務を自立して安定遂行できることを基準に評価",
+      "チェッカー": "自分の遂行に加え、不備の発見・是正・フィードバックまで評価",
+      "サブリーダー": "チーム全体への働きかけと、リーダー補佐としての判断も評価",
+      "リーダー／責任者": "成果の再現、育成、仕組み化、ホテル側との調整まで評価"
+    };
+
+    const domainRoot = document.getElementById("domains");
+    let itemNumber = 0;
+    domains.forEach((domain, domainIndex) => {
+      const section = document.createElement("section");
+      section.className = "domain";
+      section.style.setProperty("--domain", domain.color);
+      section.innerHTML = `
+        <div class="domain-head">
+          <div class="domain-title"><span class="domain-code">${domain.code}</span><h3>${domain.title}</h3></div>
+          <span class="weight">総合ウェイト ${domain.weight}%</span>
+        </div>
+        <div class="domain-items"></div>`;
+      const itemsRoot = section.querySelector(".domain-items");
+
+      domain.items.forEach((item) => {
+        itemNumber += 1;
+        const n = itemNumber;
+        const article = document.createElement("article");
+        article.className = "criterion";
+        article.dataset.item = n;
+        article.innerHTML = `
+          <div class="criterion-top">
+            <span class="num">${n}</span>
+            <div class="criterion-copy">
+              <h4>${item[0]}</h4>
+              <p>${item[1]}</p>
+              <span class="role-tip">${roleTips[document.getElementById("role").value]}</span>
+            </div>
+          </div>
+          <div class="rating-row" role="radiogroup" aria-label="${n}. ${item[0]}の評価">
+            ${[1,2,3,4,5].map(value => `
+              <div class="rating-choice">
+                <input type="radio" id="q${n}-${value}" name="q${n}" value="${value}" data-domain="${domainIndex}">
+                <label for="q${n}-${value}" title="${value}点">${value}</label>
+              </div>`).join("")}
+            <div class="rating-choice">
+              <input type="radio" id="q${n}-na" name="q${n}" value="na" data-domain="${domainIndex}">
+              <label for="q${n}-na" title="評価機会なし">―</label>
+            </div>
+          </div>
+          <div class="comment-row"><input type="text" aria-label="${n}. ${item[0]}の根拠コメント" placeholder="根拠となる行動・数値・出来事"></div>`;
+        itemsRoot.appendChild(article);
+      });
+      domainRoot.appendChild(section);
+    });
+
+    const allInputs = [...document.querySelectorAll("input[type=radio]")];
+    const scoreValue = document.getElementById("scoreValue");
+    const rankValue = document.getElementById("rankValue");
+    const completion = document.getElementById("completion");
+    const progressBar = document.getElementById("progressBar");
+    const breakdown = document.getElementById("breakdown");
+    const gateMessage = document.getElementById("gateMessage");
+
+    function selectedValue(questionNumber) {
+      return document.querySelector(`input[name="q${questionNumber}"]:checked`)?.value;
+    }
+
+    function calculate() {
+      let answered = 0;
+      let rated = 0;
+      let weightedScore = 0;
+      let usedWeight = 0;
+      const rows = [];
+
+      domains.forEach((domain, domainIndex) => {
+        const selected = [...document.querySelectorAll(`input[data-domain="${domainIndex}"]:checked`)];
+        answered += selected.length;
+        const numeric = selected.filter(input => input.value !== "na").map(input => Number(input.value));
+        rated += numeric.length;
+        if (numeric.length) {
+          const average = numeric.reduce((sum, value) => sum + value, 0) / numeric.length;
+          weightedScore += (average / 5) * domain.weight;
+          usedWeight += domain.weight;
+          rows.push(`<div class="breakdown-row"><span>${domain.code}. ${domain.title}</span><b>${average.toFixed(1)}</b></div>`);
+        } else {
+          rows.push(`<div class="breakdown-row"><span>${domain.code}. ${domain.title}</span><b>—</b></div>`);
+        }
+      });
+
+      const finalScore = usedWeight ? Math.round(weightedScore / usedWeight * 100) : null;
+      let rank = finalScore === null ? "未判定" :
+        finalScore >= 90 ? "S" : finalScore >= 80 ? "A" : finalScore >= 65 ? "B" : finalScore >= 50 ? "C" : "D";
+
+      const qualityGate = ["1", "2"].includes(selectedValue(1));
+      const safetyGate = ["1", "2"].includes(selectedValue(5));
+      const gateReasons = [];
+      if (qualityGate) gateReasons.push("No.1 仕上がり品質");
+      if (safetyGate) gateReasons.push("No.5 安全衛生");
+      if (gateReasons.length && ["S", "A", "B"].includes(rank)) rank = "C";
+
+      const status = rated >= 18 ? "正式判定" : rated >= 15 ? "暫定判定" : "参考値";
+      scoreValue.textContent = finalScore ?? "—";
+      rankValue.textContent = finalScore === null ? "未判定" : `${rank} · ${status}`;
+      completion.textContent = `${answered} / 20項目を入力済み（採点対象 ${rated}）`;
+      progressBar.style.width = `${answered * 5}%`;
+      breakdown.innerHTML = rows.join("");
+
+      if (gateReasons.length) {
+        gateMessage.classList.add("visible");
+        gateMessage.textContent = `必須条件：${gateReasons.join("・")}が2点以下のため、総合ランクの上限はCです。`;
+      } else {
+        gateMessage.classList.remove("visible");
+        gateMessage.textContent = "";
+      }
+    }
+
+    allInputs.forEach(input => input.addEventListener("change", calculate));
+    document.getElementById("role").addEventListener("change", event => {
+      document.querySelectorAll(".role-tip").forEach(el => el.textContent = roleTips[event.target.value]);
+    });
+    document.getElementById("resetButton").addEventListener("click", () => {
+      if (!window.confirm("評価点、コメント、基本情報、育成計画の入力をすべてクリアしますか？")) return;
+      document.querySelectorAll("input, textarea").forEach(el => {
+        if (el.type === "radio" || el.type === "checkbox") el.checked = false;
+        else el.value = "";
+      });
+      document.getElementById("role").selectedIndex = 0;
+      document.querySelectorAll(".role-tip").forEach(el => el.textContent = roleTips["清掃スタッフ"]);
+      calculate();
+    });
+
+    const today = new Date();
+    const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    document.getElementById("date").value = localDate;
+    calculate();
+  </script>
+</body>
+</html>
