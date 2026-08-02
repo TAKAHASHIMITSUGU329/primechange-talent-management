@@ -1,5 +1,11 @@
+# 公開リポジトリはデフォルト非公開（allowlist方式）。
+# 社内資料、個人情報、写真、旧版、独立リポジトリの誤追加を防ぐ。
 *
+
+# GitHub Pagesで公開するファイルだけを許可
 !/.gitignore
 !/README.md
 !/index.html
 !/performance-appraisal-theories.html
+!/hr-evaluation-development-plan.html
+!/tokyo-bento-labo-visit-report.html
